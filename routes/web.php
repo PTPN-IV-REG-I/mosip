@@ -13,7 +13,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout',[AuthController::class, 'logout'])->name('logout');
 
 // ── SSO Integration ────────────────────────────────
-Route::match(['get', 'post'], '/login/sso/consume', \App\Http\Controllers\Auth\SsoConsumeController::class)->name('login.sso.consume');
+Route::match(['get', 'post'], '/sso/consume', \App\Http\Controllers\Auth\SsoConsumeController::class)->name('login.sso.consume');
 Route::get('/login/sso/{provider}', function($provider) {
     return redirect(config('sso.portal_login_url'));
 })->name('login.sso');
