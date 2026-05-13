@@ -1,0 +1,5 @@
+document.addEventListener(`click`,function(e){let t=e.target.closest(`.btn-primary`);if(!t)return;let n=document.createElement(`span`),r=t.getBoundingClientRect(),i=Math.max(r.width,r.height);n.style.cssText=`
+        width:${i}px; height:${i}px;
+        left:${e.clientX-r.left-i/2}px;
+        top:${e.clientY-r.top-i/2}px;
+    `,n.classList.add(`ripple-effect`),t.appendChild(n),setTimeout(()=>n.remove(),600)}),document.documentElement.style.scrollBehavior=`smooth`,document.addEventListener(`DOMContentLoaded`,()=>{let e=document.getElementById(`main-content`);e&&e.animate([{opacity:0,transform:`translateY(14px)`},{opacity:1,transform:`translateY(0)`}],{duration:360,easing:`cubic-bezier(0.4, 0, 0.2, 1)`,fill:`both`}),document.querySelectorAll(`tbody tr`).forEach((e,t)=>{e.style.animationDelay=`${t*35}ms`})});
